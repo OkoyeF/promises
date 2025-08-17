@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Lolo - A Must Read</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .content {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+            text-align: center;
+            transform: translateY(20px);
+            opacity: 0;
+            animation: fadeInUp 1s ease-out 0.3s forwards;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .title {
+            font-size: 3.5rem;
+            font-weight: bold;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.5rem;
+            letter-spacing: -2px;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 2.5rem;
+            font-style: italic;
+            font-weight: 300;
+        }
+
+        .main-text {
+            font-size: 1.4rem;
+            line-height: 1.8;
+            color: #444;
+            margin-bottom: 2.5rem;
+            text-align: left;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .main-text::first-letter {
+            font-size: 4rem;
+            float: left;
+            line-height: 1;
+            margin-right: 8px;
+            margin-top: -4px;
+            color: #667eea;
+            font-weight: bold;
+        }
+
+        .cta-section {
+            margin-top: 3rem;
+        }
+
+        .cta-button {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            padding: 1rem 2.5rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            margin: 0.5rem;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
+        }
+
+        .cta-button.secondary {
+            background: transparent;
+            color: #667eea;
+            border: 2px solid #667eea;
+            box-shadow: none;
+        }
+
+        .cta-button.secondary:hover {
+            background: #667eea;
+            color: white;
+        }
+
+        .floating-elements {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            overflow: hidden;
+        }
+
+        .floating-circle {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .circle-1 {
+            width: 80px;
+            height: 80px;
+            top: 20%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        .circle-2 {
+            width: 60px;
+            height: 60px;
+            top: 60%;
+            right: 10%;
+            animation-delay: 2s;
+        }
+
+        .circle-3 {
+            width: 100px;
+            height: 100px;
+            bottom: 20%;
+            left: 15%;
+            animation-delay: 4s;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0px) rotate(0deg);
+            }
+            50% {
+                transform: translateY(-20px) rotate(180deg);
+            }
+        }
+
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+            }
+            50% {
+                box-shadow: 0 6px 25px rgba(102, 126, 234, 0.8);
+            }
+            100% {
+                box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+            }
+        }
+
+        /* Romantic Page Styles */
+        .romantic-title {
+            background: linear-gradient(45deg, #ff6b6b, #ffa8a8, #ff9999);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-size: 2.8rem;
+            margin-bottom: 1rem;
+        }
+        
+        .heart-divider {
+            font-size: 2rem;
+            margin: 1.5rem 0;
+            animation: heartBeat 2s infinite;
+        }
+        
+        @keyframes heartBeat {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+        }
+        
+        .rules-list {
+            text-align: left;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+        }
+        
+        .rule-item {
+            margin-bottom: 1.5rem;
+            padding: 1rem;
+            background: rgba(255, 182, 193, 0.1);
+            border-radius: 15px;
+            border-left: 4px solid #ff9999;
+            transition: all 0.3s ease;
+            animation: fadeInRule 0.6s ease-out forwards;
+            opacity: 0;
+            transform: translateX(-20px);
+        }
+        
+        .rule-item:nth-child(1) { animation-delay: 0.1s; }
+        .rule-item:nth-child(2) { animation-delay: 0.2s; }
+        .rule-item:nth-child(3) { animation-delay: 0.3s; }
+        .rule-item:nth-child(4) { animation-delay: 0.4s; }
+        .rule-item:nth-child(5) { animation-delay: 0.5s; }
+        .rule-item:nth-child(6) { animation-delay: 0.6s; }
+        .rule-item:nth-child(7) { animation-delay: 0.7s; }
+        .rule-item:nth-child(8) { animation-delay: 0.8s; }
+        .rule-item:nth-child(9) { animation-delay: 0.9s; }
+        .rule-item:nth-child(10) { animation-delay: 1.0s; }
+        .rule-item:nth-child(11) { animation-delay: 1.1s; }
+        .rule-item:nth-child(12) { animation-delay: 1.2s; }
+        
+        @keyframes fadeInRule {
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        .rule-item:hover {
+            background: rgba(255, 182, 193, 0.2);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 153, 153, 0.3);
+        }
+        
+        .rule-number {
+            background: linear-gradient(45deg, #ff6b6b, #ff9999);
+            color: white;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-bottom: 0.8rem;
+            flex-shrink: 0;
+            box-shadow: 0 3px 10px rgba(255, 107, 107, 0.3);
+        }
+        
+        .rule-item p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: #555;
+            margin: 0;
+        }
+        
+        .romantic-footer {
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 182, 193, 0.3);
+        }
+        
+        .love-message {
+            font-style: italic;
+            font-size: 1.2rem;
+            color: #666;
+            margin: 1rem 0 2rem;
+            font-family: 'Georgia', serif;
+        }
+        
+        .floating-heart {
+            position: absolute;
+            font-size: 1.5rem;
+            animation: floatHeart 8s ease-in-out infinite;
+            pointer-events: none;
+        }
+        
+        .floating-droplet {
+            position: absolute;
+            font-size: 1.2rem;
+            animation: floatDroplet 10s ease-in-out infinite;
+            pointer-events: none;
+        }
+        
+        .heart-1 {
+            top: 10%;
+            left: 5%;
+            animation-delay: 0s;
+        }
+        
+        .heart-2 {
+            top: 20%;
+            right: 8%;
+            animation-delay: 2s;
+        }
+        
+        .heart-3 {
+            bottom: 30%;
+            left: 3%;
+            animation-delay: 4s;
+        }
+        
+        .heart-4 {
+            top: 60%;
+            right: 5%;
+            animation-delay: 6s;
+        }
+        
+        .heart-5 {
+            bottom: 10%;
+            right: 15%;
+            animation-delay: 1s;
+        }
+        
+        .droplet-1 {
+            top: 15%;
+            left: 15%;
+            animation-delay: 0.5s;
+        }
+        
+        .droplet-2 {
+            top: 40%;
+            right: 20%;
+            animation-delay: 3s;
+        }
+        
+        .droplet-3 {
+            bottom: 25%;
+            left: 20%;
+            animation-delay: 5s;
+        }
+        
+        .droplet-4 {
+            top: 70%;
+            left: 8%;
+            animation-delay: 7s;
+        }
+        
+        @keyframes floatHeart {
+            0%, 100% {
+                transform: translateY(0px) rotate(0deg) scale(1);
+                opacity: 0.7;
+            }
+            25% {
+                transform: translateY(-15px) rotate(5deg) scale(1.1);
+                opacity: 1;
+            }
+            50% {
+                transform: translateY(-30px) rotate(-5deg) scale(0.9);
+                opacity: 0.8;
+            }
+            75% {
+                transform: translateY(-15px) rotate(3deg) scale(1.05);
+                opacity: 0.9;
+            }
+        }
+        
+        @keyframes floatDroplet {
+            0%, 100% {
+                transform: translateY(0px) scale(1);
+                opacity: 0.6;
+            }
+            33% {
+                transform: translateY(-20px) scale(1.2);
+                opacity: 0.9;
+            }
+            66% {
+                transform: translateY(-10px) scale(0.8);
+                opacity: 0.7;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+            
+            .content {
+                padding: 2rem;
+            }
+            
+            .title {
+                font-size: 2.5rem;
+            }
+            
+            .main-text {
+                font-size: 1.2rem;
+            }
+            
+            .cta-button {
+                display: block;
+                margin: 1rem 0;
+            }
+
+            .romantic-title {
+                font-size: 2.2rem;
+            }
+            
+            .rule-item {
+                margin-bottom: 1.5rem;
+                padding: 1rem;
+                text-align: left;
+            }
+            
+            .rule-number {
+                margin-bottom: 0.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="floating-elements">
+        <div class="floating-circle circle-1"></div>
+        <div class="floating-circle circle-2"></div>
+        <div class="floating-circle circle-3"></div>
+    </div>
+
+    <div class="container">
+        <div class="content">
+            <h1 class="title">My Lolo</h1>
+            <p class="subtitle">A Must Read</p>
+            
+            <div class="main-text">
+                Respect isn't just some extra perk in a relationship—it's the foundation that everything else is built on. Love, trust, communication, intimacy…
+            </div>
+            
+            <div class="cta-section">
+                <a href="#" class="cta-button pulse" onclick="showMore()">Continue Reading</a>
+                <a href="#" class="cta-button secondary">Share This Story</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showMore() {
+            document.body.innerHTML = `
+                <div class="floating-elements">
+                    <div class="floating-heart heart-1">❤️</div>
+                    <div class="floating-heart heart-2">💕</div>
+                    <div class="floating-heart heart-3">💖</div>
+                    <div class="floating-heart heart-4">❤️</div>
+                    <div class="floating-heart heart-5">💕</div>
+                    <div class="floating-droplet droplet-1">💧</div>
+                    <div class="floating-droplet droplet-2">💧</div>
+                    <div class="floating-droplet droplet-3">💧</div>
+                    <div class="floating-droplet droplet-4">💧</div>
+                </div>
+
+                <div class="container">
+                    <div class="content rules-page">
+                        <h1 class="title romantic-title">My Rules as a Boyfriend</h1>
+                        <div class="heart-divider">💖</div>
+                        
+                        <div class="rules-list">
+                            <div class="rule-item">
+                                <span class="rule-number">1</span>
+                                <p>We don't have to talk 24/7, if you are busy just let me know</p>
+                            </div>
+                            
+                            <div class="rule-item">
+                                <span class="rule-number">2</span>
+                                <p>It is us vs the problem not each other</p>
+                            </div>
+                            
+                            <div class="rule-item">
+                                <span class="rule-number">3</span>
+                                <p>If I do something you don't like, don't say it is okay, tell me and it will be corrected</p>
+                            </div>
+                            
+                            <div class="rule-item">
+                                <span class="rule-number">4</span>
+                                <p>Never hide your feelings from me, I am here to comfort and listen to you</p>
+                            </div>
+                            
+                            <div class="rule-item">
+                                <span class="rule-number">5</span>
+                                <p>We never go to bed angry and we never go to bed without a goodnight text</p>
+                            </div>
+                            
+                            <div class="rule-item">
+                                <span class="rule-number">6</span>
+                                <p>We ain't cheating on each other</p>
+                            </div>
+                            
+                            <div class="rule-item">
+                                <span class="rule-number">7</span>
+                                <p>We never lie to each other</p>
+                            </div>
+                            
+                            <div class="rule-item">
+                                <span class="rule-number">8</span>
+                                <p>I will always be your number supporter in everything you do</p>
+                            </div>
+                            
+                            <div class="rule-item">
+                                <span class="rule-number">9</span>
+                                <p>I will never leave you during the rough times, no matter how broken we are, we will always fix it</p>
+                            </div>
+                            
+                            <div class="rule-item">
+                                <span class="rule-number">10</span>
+                                <p>I am dating you with the intention of marrying you one day, nothing else</p>
+                            </div>
+                            
+                            <div class="rule-item">
+                                <span class="rule-number">11</span>
+                                <p>Idc if you think your interests are stupid, I want to hear about them</p>
+                            </div>
+                            
+                            <div class="rule-item">
+                                <span class="rule-number">12</span>
+                                <p>I will rather walk away from an argument not because I don't care but because I would rather calm down and come back with a cool head rather than yell and get to nowhere</p>
+                            </div>
+                        </div>
+                        
+                        <div class="romantic-footer">
+                            <div class="heart-divider">💕</div>
+                            <p class="love-message">These aren't just rules... they're promises from my heart to yours</p>
+                            <div class="cta-section">
+                                <a href="#" class="cta-button pulse" onclick="goBack()" style="background: linear-gradient(45deg, #ff6b6b, #ff9999); box-shadow: 0 4px 15px rgba(255, 107, 107, 0.4);">Back to Beginning</a>
+                                <a href="#" class="cta-button secondary" onclick="shareOurLove()" style="color: #ff6b6b; border: 2px solid #ff6b6b;">Share Our Love</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+        
+        function goBack() {
+            location.reload();
+        }
+        
+        function shareOurLove() {
+            // Try to use Web Share API if available
+            if (navigator.share) {
+                navigator.share({
+                    title: 'My Lolo - A Must Read',
+                    text: 'Check out these beautiful relationship rules that touched my heart 💕',
+                    url: window.location.href
+                }).then(() => {
+                    console.log('Successfully shared');
+                }).catch((error) => {
+                    fallbackShare();
+                });
+            } else {
+                fallbackShare();
+            }
+        }
+        
+        function fallbackShare() {
+            // Fallback sharing options
+            const url = window.location.href;
+            const text = "Check out these beautiful relationship rules that touched my heart 💕";
+            const title = "My Lolo - A Must Read";
+            
+            // Create a temporary element to copy to clipboard
+            const tempInput = document.createElement('input');
+            tempInput.value = `${title} - ${text} ${url}`;
+            document.body.appendChild(tempInput);
+            tempInput.select();
+            tempInput.setSelectionRange(0, 99999);
+            
+            try {
+                document.execCommand('copy');
+                alert('💕 Link copied to clipboard! Share the love! 💕');
+            } catch (err) {
+                // If copy fails, show share options
+                const shareText = `${title}\n${text}\n${url}`;
+                prompt('Copy this link to share:', shareText);
+            }
+            
+            document.body.removeChild(tempInput);
+        }
+
+        // Add some interactive hover effects
+        document.addEventListener('DOMContentLoaded', function() {
+            const content = document.querySelector('.content');
+            
+            content.addEventListener('mouseenter', function() {
+                this.style.transform = 'scale(1.02)';
+                this.style.transition = 'transform 0.3s ease';
+            });
+            
+            content.addEventListener('mouseleave', function() {
+                this.style.transform = 'scale(1)';
+            });
+        });
+    </script>
+</body>
+</html>
